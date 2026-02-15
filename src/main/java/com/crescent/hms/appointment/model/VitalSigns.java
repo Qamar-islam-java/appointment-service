@@ -1,5 +1,6 @@
 package com.crescent.hms.appointment.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -18,7 +19,11 @@ public class VitalSigns {
     private String pulse;
 
     // OneToOne link to Appointment
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "appointment_id")
     private Appointment appointment;
+//    @OneToOne
+//    @JoinColumn(name = "appointment_id")
+//    private Appointment appointment;
 }
